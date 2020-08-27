@@ -1,0 +1,215 @@
+    /* 导入 Poppins 字体 */
+    @import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
+
+    /* 声明 CSS 变量 */
+    :root {
+        --color-white: #f3f3f3;
+        --color-darkblue: #1b1b32;
+        --color-darkblue-alpha: rgba(27, 27, 50, 0.8);
+        --color-green: #37af65;
+        --color-purple: #800080;
+    }
+
+    html {
+        /* 1rem === 10px, 1.5rem === 15px, 2rem === 20px */
+        font-size: 10px; 
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 400;
+        line-height: 1.4;
+        color: var(--color-white);
+        margin: 0;
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        background: var(--color-darkblue);
+        background-image: linear-gradient(
+            115deg,
+            rgba(58, 58, 158, 0.8),
+            rgba(136, 136, 206, 0.7)
+            ),
+            url(https://gitee.com/colbyzn/BlogImages/raw/master/images/310653-106.jpg);
+            /* url(../img/chat-interface-background.jpg); */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .container {
+        width: 650px;
+        height: 650px;
+        margin: 0 auto;
+    }
+
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: calc(100% - 2rem);
+        height: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5rem;
+        margin-bottom: 0;
+    }
+
+    .title {
+        font-size: 3.6rem;
+        font-weight: 400;
+        line-height: 1.2;
+    }
+
+    .description {
+        font-size: 2.1rem;
+        font-style: italic;
+        font-weight: 200;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    }
+
+    .title,
+    .description {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+
+    #chat-interface {
+        width: calc(100% - 3rem);
+        height: 500px;
+        margin: 0;
+        padding: 1.5rem 1.5rem;
+        background: var(--color-darkblue-alpha);
+        border-top-left-radius: 0.45rem;
+        border-top-right-radius: 0.45rem;
+    }
+
+    .chat-content {
+        overflow: auto;
+        scroll-behavior: smooth;  /* 使滚动条平滑地滚动 */
+        width: 100%;
+        height: 90%;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        border-radius: 1rem;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;  /* 当聊天文本超出 div 元素框时，右侧不显示滚动条 */
+    }
+
+    /* 共同部分 */
+    .robot-avatar,
+    .user-avatar {
+        display: inline-block;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        width: 6rem;   /* 使用 rem 作为头像的宽度和高度，从而跟根标签挂钩 */
+        height: 6rem;
+        border: 2px solid none;
+        /* border-radius: 50%; */
+        border-radius: 1rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    /* 共同部分 */
+    .robot-text,
+    .user-text {
+        display: inline-block;
+        margin-top: 1.5rem;
+
+        padding: 0.5rem 0.5rem;
+        max-width: 50%;
+        border-radius: 1rem;
+    }
+
+    .robot {
+        float: left;
+        width: 100%;
+    }
+
+    .robot-avatar {
+        float: left;
+        margin-left: 1rem;
+        background-image: url(../img/ailun.png);
+    }
+
+    .robot-text {
+        margin-left: 1rem;
+        background-color: var(--color-darkblue);
+    }
+
+    .user {
+        float: right;
+        width: 100%;
+    }
+
+    .user-avatar {
+        float: right;
+        margin-right: 1rem;
+        background-image: url(../img/sanli.png);
+    }
+
+    .user-text {
+        float: right;
+        margin-right: 1rem;
+        background-color: var(--color-purple);
+    }
+
+    .send-bar {
+        width: 100%;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+    }
+
+    input,
+    button{
+        font-family: inherit;
+        font-size: inherit;
+    }
+
+    .input-box {
+        width: 60%;
+        height: 3rem;
+        text-align: center;
+        color: #495057;
+        border: 1px solid #ced4da;
+        border-radius: 1rem;
+ 
+    }
+
+    .input-box:focus,
+    .send-button:focus {
+        border-color: #80bdff;
+        outline: none;
+        box-shadow: 0 0 0 0.36rem rgba(0, 123, 255, 0.25);
+    }
+
+    .send-button {
+        width: 6rem;
+        height: 3rem;
+        line-height: 3rem;
+        margin-left: 2rem;
+        background: var(--color-green);
+        color: inherit;
+        border: 1px none;
+        border-radius: 1rem;
+        cursor: pointer;
+    }
+
+    .send-button:hover {
+        transform: scale(1.1);
+    }
