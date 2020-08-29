@@ -1,11 +1,13 @@
 
-var deviceWidth = window.screen.availWidth;     //获取设备宽度
-var deviceHeight = window.screen.availHeight;   //获取设备高度
+var deviceWidth = window.screen.availWidth;     //获取设备可用宽度
+// var deviceHeight = window.screen.availHeight;   //获取设备可用高度
+var deviceHeight = window.innerHeight;   //获取网页视口高度
+
 var containerWidth = deviceWidth;
 var containerHeight = deviceHeight;
 var headerHeight = 0.15 * containerHeight;
-var headerMarginTop = 0.05 * containerHeight;
-var chatInterfaceHeight = containerHeight - headerHeight - headerMarginTop;
+var chatInterfacePadding = 0.03 * containerWidth;
+var chatInterfaceHeight = containerHeight - headerHeight - chatInterfacePadding;
 var htmlFontSize = 0.022 * deviceWidth;
 
 $(document).ready(function () {
@@ -28,7 +30,12 @@ function prepareForMobile() {
         $(".container").css("width", deviceWidth);
         $(".container").css("height", deviceHeight);
         $(".header").css("height", headerHeight);
-        $(".header").css("margin-top", headerMarginTop);
+        $(".header").css("margin-top", "0");
+        $("#chat-interface").css("padding-top", chatInterfacePadding);
+        $("#chat-interface").css("padding-right", chatInterfacePadding);
+        $("#chat-interface").css("padding-bottom", "0");
+        // $("#chat-interface").css("padding-bottom", chatInterfacePadding);
+        $("#chat-interface").css("padding-left", chatInterfacePadding);
         $("#chat-interface").css("height", chatInterfaceHeight);
         $("html").css("font-size", htmlFontSize);
     }
