@@ -7,6 +7,7 @@ var containerWidth = deviceWidth;
 var containerHeight = deviceHeight;
 var headerHeight = 0.15 * containerHeight;
 var chatInterfacePadding = 0.03 * containerWidth;
+var chatInterfaceWidth = containerWidth - 2 * chatInterfacePadding;
 var chatInterfaceHeight = containerHeight - headerHeight - chatInterfacePadding;
 var htmlFontSize = 0.022 * deviceWidth;
 
@@ -36,6 +37,7 @@ function prepareForMobile() {
         $("#chat-interface").css("padding-bottom", "0");
         // $("#chat-interface").css("padding-bottom", chatInterfacePadding);
         $("#chat-interface").css("padding-left", chatInterfacePadding);
+        $("#chat-interface").css("width", chatInterfaceWidth);
         $("#chat-interface").css("height", chatInterfaceHeight);
         $("html").css("font-size", htmlFontSize);
     }
